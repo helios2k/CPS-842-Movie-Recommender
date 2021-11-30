@@ -20,6 +20,7 @@
   flex-direction: column;
 }
 .place-card-text {
+  color: var(--dl-color-gray-white);
   font-size: 20px;
   align-self: center;
   font-style: normal;

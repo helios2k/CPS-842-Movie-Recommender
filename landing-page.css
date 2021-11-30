@@ -36,6 +36,7 @@
   flex-direction: column;
 }
 .place-card-text {
+  color: var(--dl-color-gray-white);
   font-size: 20px;
   align-self: center;
   font-style: normal;
@@ -64,10 +65,11 @@
   min-height: 100vh;
   align-items: center;
   flex-direction: column;
+  background-color: #0b1622;
 }
 .landing-page-top-container {
   width: 100%;
-  height: 159px;
+  height: 164px;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -101,9 +103,11 @@
   justify-content: space-between;
 }
 .landing-page-text {
+  color: var(--dl-color-gray-white);
   margin-right: var(--dl-space-space-doubleunit);
 }
 .landing-page-text2 {
+  color: var(--dl-color-gray-white);
   margin-right: var(--dl-space-space-doubleunit);
 }
 .landing-page-link {
@@ -125,8 +129,11 @@
   padding-bottom: var(--dl-space-space-quadruple);
   justify-content: flex-start;
 }
+.landing-page-text3 {
+  color: var(--dl-color-gray-white);
+}
 .landing-page-text4 {
-  color: var(--dl-color-gray-500);
+  color: var(--dl-color-gray-white);
 }
 .landing-page-cards-container {
   width: 952px;
