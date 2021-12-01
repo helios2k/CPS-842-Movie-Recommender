@@ -209,14 +209,6 @@
 .landing-page-link4 {
   text-decoration: none;
 }
-.landing-page-follow-container {
-  border: 2px dashed rgba(120, 120, 120, 0.4);
-  display: flex;
-  align-items: center;
-  margin-left: 50px;
-  flex-direction: column;
-  justify-content: space-between;
-}
 @media(max-width: 991px) {
   .landing-page-cards-container {
     justify-content: center;
@@ -270,8 +262,5 @@
   }
   .landing-page-link4 {
     margin-bottom: var(--dl-space-space-halfunit);
-  }
-  .landing-page-follow-container {
-    margin-left: 0px;
   }
 }
