@@ -1,3 +1,7 @@
+let usernames = {};
+
+// TODO: Read usernames file
+
 function setFormMessage(formElement, type, message) {
     const messageElement = formElement.querySelector(".form__message");
 
@@ -19,8 +23,9 @@ function clearInputError(inputElement) {
 document.addEventListener("DOMContentLoaded", () => {
     const loginForm = document.querySelector("#login");
     const usernameForm = document.querySelector("#username");
-    const passwordForm = document.querySelector("#password");
+    //const passwordForm = document.querySelector("#password");
     const createAccountForm = document.querySelector("#createAccount");
+    const signupUsernameForm = document.querySelector("#signupUsername");
 
     document.querySelector("#linkCreateAccount").addEventListener("click", e => {
         e.preventDefault();
@@ -41,18 +46,27 @@ document.addEventListener("DOMContentLoaded", () => {
         console.log("A"); 
         // Perform your AJAX/Fetch login
         let username = usernameForm.value; //usernameForm.value;
-        let password = passwordForm.value;
-        setFormMessage(loginForm, "error", username + ":" + password);
-        //setFormMessage(loginForm, "error", "Invalid username/password combination");
+        //let password = passwordForm.value;
+        if (username in usernames) {
+            setFormMessage(loginForm, "error", "Log in success!");
+        } else {
+            setFormMessage(loginForm, "error", "Error: Unknown user " + username);
+        }
     });
 
     //TODO: event listener for sign up
+    createAccountForm.addEventListener("submit", e => {
+        e.preventDefault();
+        let signupUsername = signupUsernameForm.value;
+        usernames[signupUsername] = 1;
+        console.log("Created account: " + signupUsername);
+    });
 
     document.querySelectorAll(".form__input").forEach(inputElement => {
         inputElement.addEventListener("blur", e => {
-            if (e.target.id === "signupUsername" && e.target.value.length > 0 && e.target.value.length < 10) {
-                setInputError(inputElement, "Username must be at least 10 characters in length");
-            }
+            //if (e.target.id === "signupUsername" && e.target.value.length > 0 && e.target.value.length < 10) {
+            //    setInputError(inputElement, "Username must be at least 10 characters in length");
+            //}
         });
 
         inputElement.addEventListener("input", e => {
