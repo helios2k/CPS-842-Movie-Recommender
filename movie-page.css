@@ -115,7 +115,7 @@
   justify-content: flex-start;
 }
 .movie-page-container1 {
-  width: 825px;
+  width: 894px;
   height: 77px;
   display: flex;
   align-items: center;
@@ -123,7 +123,7 @@
 }
 .movie-page-text03 {
   color: var(--dl-color-gray-white);
-  width: 512px;
+  width: 524px;
   height: 75px;
   align-self: center;
   font-style: normal;
@@ -140,10 +140,10 @@
   font-size: 1.5em;
   align-self: center;
   font-style: normal;
-  font-weight: 400;
+  font-weight: 500;
 }
 .movie-page-cards-container {
-  width: 826px;
+  width: 895px;
   height: 653px;
   margin: 0px;
   display: flex;
@@ -190,8 +190,7 @@
   justify-content: center;
 }
 .movie-page-container5 {
-  flex: 0 0 auto;
-  width: auto;
+  width: 395px;
   height: 100%;
   display: flex;
   align-items: space-between;
@@ -216,9 +215,10 @@
   font-weight: 400;
 }
 .movie-page-container6 {
-  width: 100%;
+  width: 290px;
   height: 90px;
   display: flex;
+  align-self: flex-end;
   align-items: center;
   padding-top: var(--dl-space-space-unit);
   justify-content: flex-end;
@@ -238,7 +238,7 @@
   color: var(--dl-color-gray-white);
   width: var(--dl-size-size-doubleunit);
   height: 64px;
-  font-size: 1.5em;
+  font-size: 1.25em;
   align-self: center;
   text-align: right;
   padding-top: var(--dl-space-space-unit);
@@ -260,6 +260,26 @@
   padding-bottom: var(--dl-space-space-unit);
 }
 .movie-page-text15 {
+  color: var(--dl-color-gray-white);
+  font-size: 1.5em;
+  align-self: flex-end;
+  font-style: normal;
+  font-weight: 400;
+  padding-top: var(--dl-space-space-unit);
+  padding-left: var(--dl-space-space-unit);
+  padding-right: var(--dl-space-space-unit);
+  padding-bottom: var(--dl-space-space-unit);
+  text-decoration: underline;
+}
+.movie-page-text17 {
+  color: var(--dl-color-gray-white);
+  padding: var(--dl-space-space-unit);
+  font-size: 1.5em;
+  align-self: flex-end;
+  font-style: normal;
+  font-weight: 400;
+}
+.movie-page-text20 {
   color: var(--dl-color-gray-white);
   padding: var(--dl-space-space-unit);
   font-size: 1.5em;
@@ -300,7 +320,7 @@
   margin-left: 100px;
   flex-direction: column;
 }
-.movie-page-text17 {
+.movie-page-text22 {
   height: 100%;
   align-self: flex-start;
   margin-top: 0px;
@@ -363,7 +383,7 @@
     align-items: flex-start;
     justify-content: flex-start;
   }
-  .movie-page-text17 {
+  .movie-page-text22 {
     margin-bottom: var(--dl-space-space-halfunit);
   }
   .movie-page-container8 {
