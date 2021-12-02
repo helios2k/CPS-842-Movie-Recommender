@@ -12,22 +12,6 @@
   border-top-left-radius: var(--dl-radius-radius-radius8);
   border-top-right-radius: var(--dl-radius-radius-radius8);
 }
-.place-card-container1 {
-  width: 100%;
-  display: flex;
-  padding: var(--dl-space-space-unit);
-  align-items: center;
-  flex-direction: column;
-}
-.place-card-text {
-  color: var(--dl-color-gray-white);
-  font-size: 20px;
-  align-self: center;
-  font-style: normal;
-  text-align: center;
-  font-weight: 700;
-  padding-bottom: var(--dl-space-space-halfunit);
-}
 .rootClassName {
   align-self: flex-end;
 }

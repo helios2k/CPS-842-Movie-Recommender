@@ -35,31 +35,34 @@
   </head>
   <body>
     <div>
-      <link href="./landing-page.css" rel="stylesheet" />
-      <title>CPS 842 Movie Recommender Frontend</title>
-      <meta property="og:title" content="CPS 842 Movie Recommender Frontend" />
-      <div class="landing-page-container">
-        <div class="landing-page-top-container">
-          <nav class="landing-page-navbar">
+      <link href="./movie-page.css" rel="stylesheet" />
+      <title>Movie Page - CPS 842 Movie Recommender Frontend</title>
+      <meta
+        property="og:title"
+        content="Movie Page - CPS 842 Movie Recommender Frontend"
+      />
+      <div class="movie-page-container">
+        <div class="movie-page-top-container">
+          <nav class="movie-page-navbar">
             <img
               alt="image"
               src="public/playground_assets/movie%20recommender%20logo%20transparent-200h.png"
-              class="landing-page-image"
+              class="movie-page-image"
             />
-            <div class="landing-page-right-side">
-              <div class="landing-page-links-container">
-                <span class="landing-page-text"><span>Browse</span></span>
-                <span class="landing-page-text2">Login</span>
+            <div class="movie-page-right-side">
+              <div class="movie-page-links-container">
+                <span class="movie-page-text"><span>Browse</span></span>
+                <span class="movie-page-text02">Login</span>
               </div>
-              <a href="#main-section" class="landing-page-link">
-                <div class="solid-button-container rootClassName">
+              <a href="#main-section" class="movie-page-link">
+                <div class="solid-button-container rootClassName1">
                   <button class="solid-button-button button">
                     <span>Sign Up</span>
                   </button>
                 </div>
               </a>
             </div>
-            <svg viewBox="0 0 1024 1024" class="landing-page-burger-menu">
+            <svg viewBox="0 0 1024 1024" class="movie-page-burger-menu">
               <path
                 d="M810.667 725.333h-597.333c-47.061 0-85.333 38.272-85.333 85.333s38.272 85.333 85.333 85.333h597.333c47.061 0 85.333-38.272 85.333-85.333s-38.272-85.333-85.333-85.333z"
               ></path>
@@ -72,90 +75,81 @@
             </svg>
           </nav>
         </div>
-        <div id="main-section" class="landing-page-main">
-          <h1 class="landing-page-text3">TRENDING NOW</h1>
-          <span class="landing-page-text4">Recommended</span>
-          <div class="landing-page-cards-container">
-            <div class="place-card-container">
-              <img
-                alt="image"
-                src="public/playground_assets/dune-1500h.jpg"
-                class="place-card-image"
-              />
+        <div id="main-section" class="movie-page-main">
+          <div class="movie-page-container1">
+            <h1 class="movie-page-text03">No Time to Die</h1>
+            <span class="movie-page-text04">
+              <span>Average Rating: 3.5/5</span>
+            </span>
+          </div>
+          <div class="movie-page-cards-container">
+            <div class="movie-page-container2">
+              <div class="movie-page-container3">
+                <span class="movie-page-text06">2h 43m</span>
+                <img
+                  src="public/playground_assets/no%20time%20to%20die-400w.jpg"
+                  alt="image"
+                  class="movie-page-image1"
+                />
+                <div class="movie-page-container4">
+                  <div class="genre-container rootClassName">
+                    <button class="genre-button button">
+                      <span>Action</span>
+                    </button>
+                  </div>
+                  <div class="genre-container rootClassName">
+                    <button class="genre-button button">
+                      <span>Adventure</span>
+                    </button>
+                  </div>
+                  <div class="genre-container rootClassName">
+                    <button class="genre-button button">
+                      <span>Thriller</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="place-card-container">
-              <img
-                alt="image"
-                src="public/playground_assets/mitchells-1500h.jpg"
-                class="place-card-image"
-              />
-            </div>
-            <div class="place-card-container">
-              <img
-                alt="image"
-                src="public/playground_assets/suicide%20squad-1500h.jpg"
-                class="place-card-image"
-              />
-            </div>
-            <div class="place-card-container">
-              <img
-                alt="image"
-                src="public/playground_assets/free%20guy-1500h.jpg"
-                class="place-card-image"
-              />
-            </div>
-            <div class="place-card-container">
-              <img
-                alt="image"
-                src="public/playground_assets/no%20time%20to%20die-1500h.jpg"
-                class="place-card-image"
-              />
-            </div>
-            <div class="place-card-container">
-              <img
-                alt="image"
-                src="public/playground_assets/shang-chi-1500h.jpg"
-                class="place-card-image"
-              />
-            </div>
-            <div class="place-card-container">
-              <img
-                alt="image"
-                src="public/playground_assets/green%20knight-1500h.jpg"
-                class="place-card-image"
-              />
-            </div>
-            <div class="place-card-container">
-              <img
-                alt="image"
-                src="public/playground_assets/f9-1000w.jpg"
-                class="place-card-image"
-              />
-            </div>
-            <div class="place-card-container">
-              <img
-                alt="image"
-                src="public/playground_assets/black_widow-1500h.jpg"
-                class="place-card-image"
-              />
+            <div class="movie-page-container5">
+              <span class="movie-page-text07"><span>68 Metascore</span></span>
+              <span class="movie-page-text09">
+                <span>IMDb Rating: 7.4/10</span>
+              </span>
+              <div class="movie-page-container6">
+                <span class="movie-page-text11"><span>Your Rating:</span></span>
+                <input
+                  type="text"
+                  placeholder="placeholder"
+                  class="movie-page-textinput input"
+                />
+                <span class="movie-page-text13"><span>/5</span></span>
+              </div>
+              <div class="solid-button-container rootClassName1">
+                <button class="solid-button-button button">
+                  <span>Submit</span>
+                </button>
+              </div>
+              <span class="movie-page-text15">
+                <span>Your Predicted Rating: 3/5</span>
+              </span>
             </div>
           </div>
         </div>
-        <div class="landing-page-footer">
-          <div class="landing-page-menu">
-            <div class="landing-page-links-container1">
-              <div class="landing-page-container1">
-                <span class="landing-page-text5">
+        <div class="movie-page-footer">
+          <div class="movie-page-menu">
+            <div class="movie-page-links-container1">
+              <div class="movie-page-container7">
+                <span class="movie-page-text17">
                   <span>Front end by Yiran</span>
                   <span>Zhu</span>
                 </span>
               </div>
-              <div class="landing-page-container2">
+              <div class="movie-page-container8">
                 <a
                   href="https://example.com"
                   target="_blank"
                   rel="noreferrer noopener"
-                  class="landing-page-link1"
+                  class="movie-page-link1"
                 >
                   About us
                 </a>
@@ -163,7 +157,7 @@
                   href="https://example.com"
                   target="_blank"
                   rel="noreferrer noopener"
-                  class="landing-page-link2"
+                  class="movie-page-link2"
                 >
                   FAQ
                 </a>
@@ -171,7 +165,7 @@
                   href="https://example.com"
                   target="_blank"
                   rel="noreferrer noopener"
-                  class="landing-page-link3"
+                  class="movie-page-link3"
                 >
                   Terms and conditions
                 </a>
@@ -179,7 +173,7 @@
                   href="https://example.com"
                   target="_blank"
                   rel="noreferrer noopener"
-                  class="landing-page-link4"
+                  class="movie-page-link4"
                 >
                   Contact
                 </a>

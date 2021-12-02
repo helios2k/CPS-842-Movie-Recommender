@@ -1,19 +1,24 @@
-.solid-button-container {
+.genre-container {
   display: flex;
   position: relative;
 }
-.solid-button-button {
+.genre-button {
   color: var(--dl-color-gray-white);
-  border: none;
   padding-top: var(--dl-space-space-halfunit);
+  border-color: var(--dl-color-gray-white);
+  border-width: none;
   padding-left: var(--dl-space-space-doubleunit);
   border-radius: 50px;
   padding-right: var(--dl-space-space-doubleunit);
   padding-bottom: var(--dl-space-space-halfunit);
-  background-color: var(--dl-color-primary-signupblue);
+  background-color: transparent;
 }
-
-
+.rootClassName {
+  align-self: flex-start;
+}
+.rootClassName1 {
+  align-self: flex-start;
+}
 .rootClassName2 {
-  align-self: flex-end;
+  align-self: flex-start;
 }
