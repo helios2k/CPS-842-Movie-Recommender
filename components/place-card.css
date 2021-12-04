@@ -15,6 +15,30 @@
 .rootClassName {
   align-self: flex-end;
 }
+.rootClassName1 {
+  align-self: flex-end;
+}
+.rootClassName2 {
+  align-self: flex-end;
+}
+.rootClassName3 {
+  align-self: flex-end;
+}
+.rootClassName4 {
+  align-self: flex-end;
+}
+.rootClassName5 {
+  align-self: flex-end;
+}
+.rootClassName6 {
+  align-self: flex-end;
+}
+.rootClassName7 {
+  align-self: flex-end;
+}
+.rootClassName8 {
+  align-self: flex-end;
+}
 @media(max-width: 767px) {
   .place-card-container {
     width: 200px;

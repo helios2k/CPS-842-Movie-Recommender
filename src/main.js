@@ -2,10 +2,6 @@ let usernames = {};
 
 // TODO: Read usernames file
 
-function delay(time) {
-    return new Promise(resolve => setTimeout(resolve, time));
-  }
-
 function setFormMessage(formElement, type, message) {
     const messageElement = formElement.querySelector(".form__message");
 
