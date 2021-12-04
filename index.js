@@ -68,6 +68,11 @@ app.get("/", async (req, res) => {
     return res.sendFile(path.join(__dirname, "public/landing-page.html"));
 });
 
+app.get("/login", async (req, res) => {
+    return res.sendFile(path.join(__dirname, "public/login-page.html"));
+});
+
+
 app.get("/movie/*", async (req, res) => {
     try {
         const movieID = req.path.split("/movie/")[1],
@@ -86,7 +91,6 @@ app.get("/movie/*", async (req, res) => {
         res.status(500).send(e);
     }
 });
-
 
 function saveData() {
     fs.writeFileSync('./data/availableUsers.json', JSON.stringify(availableUsers, null, 2));
