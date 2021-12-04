@@ -1,0 +1,27 @@
+.login-button-container {
+  display: flex;
+  position: relative;
+}
+.login-button-button {
+  color: var(--dl-color-gray-white);
+  border: none;
+  padding-top: var(--dl-space-space-halfunit);
+  padding-left: var(--dl-space-space-doubleunit);
+  border-radius: 50px;
+  padding-right: var(--dl-space-space-doubleunit);
+  padding-bottom: var(--dl-space-space-halfunit);
+  background-color: var(--dl-color-primary-signupblue);
+}
+
+
+.rootClassName2 {
+  align-self: flex-end;
+}
+
+.rootClassName4 {
+  align-self: flex-end;
+}
+
+.rootClassName8 {
+  align-self: flex-end;
+}

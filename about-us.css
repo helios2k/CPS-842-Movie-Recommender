@@ -1,8 +1,8 @@
-.solid-button-container {
+.login-button-container {
   display: flex;
   position: relative;
 }
-.solid-button-button {
+.login-button-button {
   color: var(--dl-color-gray-white);
   border: none;
   padding-top: var(--dl-space-space-halfunit);
@@ -22,11 +22,9 @@
   align-self: flex-end;
 }
 
-
 .rootClassName8 {
   align-self: flex-end;
 }
-
 
 .about-us-container {
   width: 100%;
@@ -132,6 +130,14 @@
   margin-bottom: 0px;
   flex-direction: row;
   justify-content: center;
+}
+.about-us-text04 {
+  font-style: normal;
+  font-weight: 500;
+}
+.about-us-text05 {
+  font-style: normal;
+  font-weight: 500;
 }
 .about-us-footer {
   color: var(--dl-color-gray-white);

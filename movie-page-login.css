@@ -1,8 +1,8 @@
-.solid-button-container {
+.login-button-container {
   display: flex;
   position: relative;
 }
-.solid-button-button {
+.login-button-button {
   color: var(--dl-color-gray-white);
   border: none;
   padding-top: var(--dl-space-space-halfunit);
@@ -22,11 +22,9 @@
   align-self: flex-end;
 }
 
-
 .rootClassName8 {
   align-self: flex-end;
 }
-
 
 .genre-container {
   display: flex;
@@ -162,7 +160,7 @@
   padding-right: var(--dl-space-space-halfunit);
   padding-bottom: var(--dl-space-space-halfunit);
 }
-.movie-page-login-text04 {
+.movie-page-login-text07 {
   color: var(--dl-color-gray-white);
   padding: var(--dl-space-space-halfunit);
   font-size: 1.5em;
@@ -199,7 +197,7 @@
   align-items: space-between;
   flex-direction: column;
 }
-.movie-page-login-text06 {
+.movie-page-login-text09 {
   color: var(--dl-color-gray-white);
   padding: var(--dl-space-space-halfunit);
   text-align: center;
@@ -226,7 +224,7 @@
   flex-direction: column;
   justify-content: flex-start;
 }
-.movie-page-login-text07 {
+.movie-page-login-text10 {
   color: var(--dl-color-gray-white);
   padding: var(--dl-space-space-unit);
   font-size: 1.5em;
@@ -234,7 +232,7 @@
   font-style: normal;
   font-weight: 400;
 }
-.movie-page-login-text09 {
+.movie-page-login-text12 {
   color: var(--dl-color-gray-white);
   padding: var(--dl-space-space-unit);
   font-size: 1.5em;
@@ -251,7 +249,7 @@
   padding-top: var(--dl-space-space-unit);
   justify-content: flex-end;
 }
-.movie-page-login-text11 {
+.movie-page-login-text14 {
   color: var(--dl-color-gray-white);
   font-size: 1.5em;
   align-self: center;
@@ -276,7 +274,7 @@
   padding-bottom: var(--dl-space-space-unit);
   background-color: transparent;
 }
-.movie-page-login-text13 {
+.movie-page-login-text16 {
   color: var(--dl-color-gray-white);
   font-size: 1.5em;
   align-self: center;
@@ -287,7 +285,7 @@
   padding-right: var(--dl-space-space-unit);
   padding-bottom: var(--dl-space-space-unit);
 }
-.movie-page-login-text15 {
+.movie-page-login-text18 {
   color: var(--dl-color-gray-white);
   font-size: 1.5em;
   align-self: flex-end;
@@ -299,7 +297,7 @@
   padding-bottom: var(--dl-space-space-unit);
   text-decoration: underline;
 }
-.movie-page-login-text17 {
+.movie-page-login-text20 {
   color: var(--dl-color-gray-white);
   padding: var(--dl-space-space-unit);
   font-size: 1.5em;
@@ -307,7 +305,7 @@
   font-style: normal;
   font-weight: 400;
 }
-.movie-page-login-text20 {
+.movie-page-login-text23 {
   color: var(--dl-color-gray-white);
   padding: var(--dl-space-space-unit);
   font-size: 1.5em;
