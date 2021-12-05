@@ -27,10 +27,13 @@ body {
     background: #19212d;
 }
 
-.container,
 .form__input,
 .form__button {
     font: 500 1rem 'Quicksand', sans-serif;
+}
+
+.container {
+	font: 500 1rem 'Quicksand', sans-serif;
 	color: #ffffff;
 }
 
