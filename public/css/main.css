@@ -1,7 +1,7 @@
 body {
-    --color-primary: #009579;
-    --color-primary-dark: #007f67;
-    --color-secondary: #252c6a;
+    --color-primary: #1a3670ff;
+    --color-primary-dark: #1a3670ff;
+    --color-secondary: #ffffff;
     --color-error: #cc3333;
     --color-success: #4bb544;
     --border-radius: 4px;
@@ -14,6 +14,7 @@ body {
     font-size: 18px;
     background: url(./background.jpg);
     background-size: cover;
+	background-color: #0b1622;
 }
 
 .container {
@@ -23,13 +24,14 @@ body {
     padding: 2rem;
     box-shadow: 0 0 40px rgba(0, 0, 0, 0.2);
     border-radius: var(--border-radius);
-    background: #ffffff;
+    background: #19212d;
 }
 
 .container,
 .form__input,
 .form__button {
     font: 500 1rem 'Quicksand', sans-serif;
+	color: #ffffff;
 }
 
 .form--hidden {
