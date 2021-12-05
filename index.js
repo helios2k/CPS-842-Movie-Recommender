@@ -24,12 +24,15 @@ app.listen(PORT, () => {
 });
 
 app.post("/create-user", async (req, res) => {
+    if (!req.body.username) return res.status(403).end();
     try {
         let tempUserID = getRandomID();
         availableUsers[tempUserID] = req.body.username;
         saveData();
         res.cookie('userID', tempUserID);
+        res.cookie('userName', req.body.username);
         res.redirect(`http://localhost:${PORT}/`);
+        res.status(302).end();
     } catch (e) {
         console.log(e);
         res.status(500).end();
@@ -37,10 +40,11 @@ app.post("/create-user", async (req, res) => {
 });
 
 app.post('/login', async (req, res) => {
-    if (req.body.username) return res.status(403).end();
+    if (!req.body.username) return res.status(403).end();
     try {
         if (!availableUsers[req.body.username]) return res.status(403).end();
         res.cookie('userID', availableUsers[req.body.username]);
+        res.cookie('userName', req.body.username);
         res.redirect(`http://localhost:${PORT}/`);
     } catch (e) {
         console.log(e);
@@ -49,7 +53,7 @@ app.post('/login', async (req, res) => {
 })
 
 app.post("/add-rating", async (req, res) => {
-    if (req.cookies.userID || req.body.movieID) return res.status(403).end();
+    if (!req.cookies.userID || !req.body.movieID) return res.status(403).end();
     try {
         movieData[req.body.movieID].ratings[req.cookies.userID] = req.body.rating;
         saveData();
@@ -100,3 +104,4 @@ function saveData() {
 function getRandomID(min = 600, max = 1000) { // Get random ID
     return Math.floor(Math.random() * (max - min + 1) + min);
 };
+
