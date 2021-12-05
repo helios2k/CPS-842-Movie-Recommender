@@ -19,9 +19,9 @@ def jsontocsv():
                 aDict["ratings"].append(rating)
                 aDict["title"].append(title)
     df = pd.DataFrame(aDict)
-    df.to_csv("calcData.csv",index=False)
+    df.to_csv("dataForItemBased.csv",index=False)
 
 def userItemMatrix():
-    data = pd.read_csv("calcData.csv")
+    data = pd.read_csv("dataForItemBased.csv")
     user_item_matrix = data.pivot(index="userId",columns="title",values="ratings").fillna(0)
     user_item_matrix.to_csv("userItemMatrix.csv",index=True)
