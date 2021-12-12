@@ -35,11 +35,11 @@
   </head>
   <body>
     <div>
-      <link href="../public/css/movie-page-login.css" rel="stylesheet" />
+      <link href="../public/css/movie-page.css" rel="stylesheet" />
       <title>Movie Page Login - CPS 842 Movie Recommender Frontend</title>
       <meta
         property="og:title"
-        content="Movie Page Login - CPS 842 Movie Recommender Frontend"
+        content="Movie Page Logout - CPS 842 Movie Recommender Frontend"
       />
       <div class="movie-page-login-container">
         <div class="movie-page-login-top-container">
@@ -78,39 +78,36 @@
             </svg>
           </nav>
         </div>
-        <div id="main-section" class="movie-page-login-main">
-          <div class="movie-page-login-container1">
-            <h1 class="movie-page-login-text03">
-              <span>Ant-Man</span>
-              <br />
-              <span></span>
-            </h1>
-            <span class="movie-page-login-text07">
+        <div id="main-section" class="movie-page-logout-main">
+          <div class="movie-page-logout-container03">
+            <h1 class="movie-page-logout-text04">MOVIE TITLE HERE</h1>
+            <span class="movie-page-logout-text05">
               <span>Average Rating: AVERAGE RATING HERE/5</span>
             </span>
           </div>
-          <div class="movie-page-login-cards-container">
-            <div class="movie-page-login-container2">
-              <div class="movie-page-login-container3">
-                <span class="movie-page-login-text09">MOVIE TIME HERE</span>
+          <div class="movie-page-logout-cards-container">
+            <div class="movie-page-logout-container04">
+              <div class="movie-page-logout-container05">
+                <span class="movie-page-logout-text07">MOVIE TIME HERE</span>
                 <img
                   alt="image"
                   src="../public/img/IMAGE HERE.jpg"
-                  class="movie-page-login-image1"
+                  class="movie-page-logout-image1"
                 />
               </div>
             </div>
-            <div class="movie-page-login-container5">
-              <span class="movie-page-login-text10">
-                <span>META SCORE HERE Metascore</span>
-              </span>
-              <span class="movie-page-login-text12">
-                <span>IMDb Rating: IMDB SCORE HERE/10</span>
-              </span>
-              <div class="movie-page-login-container6">
-                <span class="movie-page-login-text14">
-                  <span>Your Rating:</span>
+            <div class="movie-page-login-container04">
+              <div class="movie-page-logout-container07">
+                <span class="movie-page-logout-text08">
+                  <span>META SCORE HERE Metascore</span>
                 </span>
+                <span class="movie-page-logout-text10">
+                  <span>IMDb Rating: IMDB SCORE HERE/10</span>
+                </span>
+                <div class="movie-page-logout-container08">
+                  <span class="movie-page-logout-text12">
+                    <span>Your Rating:</span>
+                  </span>
                 <input
                   type="text"
                   placeholder="placeholder"
@@ -125,26 +122,36 @@
                 </button>
               </div>
               <span class="movie-page-login-text18">
-                <span>Your Predicted Rating</span>
+                <h2 style="text-align: right; padding-top: 40px; color: var(--dl-color-gray-white);">Movie - Similarity Score:</h2>
               </span>
-              <span class="movie-page-login-text20">
-                <span>Item-based: 3/5</span>
-              </span>
-              <span class="movie-page-login-text23">
-                <span>User-based: 4/5</span>
-              </span>
+              <div class="movie-page-login-container08">
+                <div class="movie-page-login-movie-rec-4">
+                  <ul style="list-style-type:none;">
+                    <li style="text-align: right; padding: 15px 0px; color: var(--dl-color-gray-white);">
+                      <a href="http://localhost:8888/">Movie B - 90%</a>
+                    </li>
+                    <li style="text-align: right; padding: 15px 0px; color: var(--dl-color-gray-white);">
+                      <a href="http://localhost:8888/">Movie C - 70%</a>
+                    </li>
+                    <li style="text-align: right; padding: 15px 0px; color: var(--dl-color-gray-white);">
+                      <a href="http://localhost:8888/">Movie A - 60%</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
             </div>
           </div>
         </div>
-        <div class="movie-page-login-footer">
-          <div class="movie-page-login-menu">
-            <div class="movie-page-login-links-container1">
-              <div class="movie-page-login-container7">
+        <div class="movie-page-logout-footer">
+          <div class="movie-page-logout-menu">
+            <div class="movie-page-logout-links-container01">
+              <div class="movie-page-logout-container09">
                 <a
                   href="http://localhost:8888/about-us"
                   target="_blank"
                   rel="noreferrer noopener"
-                  class="movie-page-login-link1"
+                  class="movie-page-logout-link"
                 >
                   About us
                 </a>
