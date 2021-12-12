@@ -106,12 +106,21 @@ app.get("/movie/*", async (req, res) => {
         const movieID = req.path.split("/movie/")[1],
             tempMovieData = movieData[movieID];
         if (!tempMovieData) return res.status(404).send("Invalid Movie ID");
-        // Do calculations here
+        // Calculations
+        let averageRating = 0,
+            ratingCounter = 0;
+        for (let tempRating in tempMovieData.ratings) {
+            averageRating += tempMovieData.ratings[tempRating];
+            ratingCounter++;
+        };
+        averageRating = (averageRating / ratingCounter).toFixed(1);
 
+        // Update HTML
         let formattedHTML;
         if (req.cookies.userID) formattedHTML = fs.readFileSync(path.join(__dirname, "public/movie-page-logged-in.html")).toString().replace("REPLACE USERNAME", req.cookies.userName);
         else formattedHTML = fs.readFileSync(path.join(__dirname, "public/movie-page-logged-out.html")).toString();
 
+        formattedHTML = formattedHTML.replace("AVERAGE RATING HERE", averageRating);
         formattedHTML = formattedHTML.replace("META SCORE HERE", tempMovieData.movieInfo.metaScore);
         formattedHTML = formattedHTML.replace("IMDB SCORE HERE", tempMovieData.movieInfo.IMDbRating);
         formattedHTML = formattedHTML.replace("MOVIE TIME HERE", tempMovieData.movieInfo.runTime);
@@ -122,7 +131,9 @@ app.get("/movie/*", async (req, res) => {
         res.status(200).send(formattedHTML);
     } catch (e) {
         console.log(e);
-        res.status(500).send(e);
+        res.status(200).send({
+            success: false
+        });
     }
 });
 
