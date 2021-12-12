@@ -39,30 +39,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
     loginForm.addEventListener("submit", e => {
         e.preventDefault();
-
-
-        console.log("A");
-        const messageElement = loginForm.querySelector(".form__message");
-        messageElement.classList.remove("form--hidden");
-        // Perform your AJAX/Fetch login
         let username = usernameForm.value; //usernameForm.value;
-        //let password = passwordForm.value;
-        if (username in usernames) {
-            setFormMessage(loginForm, "error", "Log in success!");
-        } else {
-            setFormMessage(loginForm, "error", "Error: Unknown user \"" + username + "\"");
-        }
-
+        if (username.trim() === "") return setFormMessage(loginForm, "error", "Invalid Username");
         postData('http://localhost:8888/login', {
                 username: username
             })
             .then(data => {
+                console.log(data)
                 if (data.success) {
-                    setFormMessage(loginForm, "error", "Created User");
+                    setFormMessage(loginForm, "error", "Log in success!");
                     setTimeout(() => {
                         window.location.href = "http://localhost:8888";
                     }, 1500);
-                } else setFormMessage(loginForm, "error", "Invalid Username");
+                } else setFormMessage(loginForm, "error", "Error: Unknown user \"" + username + "\"");
             });
     });
 

@@ -45,11 +45,17 @@ app.post("/create-user", async (req, res) => {
 app.post('/login', async (req, res) => {
     if (!req.body.username) return res.status(403).end();
     try {
-        if (!availableUsers[req.body.username]) return res.status(403).end();
-        res.cookie('userID', availableUsers[req.body.username]);
-        res.cookie('userName', req.body.username);
+        for (let tempUserID in availableUsers) {
+            if (availableUsers[tempUserID] === req.body.username) {
+                res.cookie('userID', tempUserID);
+                res.cookie('userName', req.body.username);
+                return res.status(200).send({
+                    success: true
+                });
+            }
+        };
         res.status(200).send({
-            success: true
+            success: false
         });
     } catch (e) {
         console.log(e);
