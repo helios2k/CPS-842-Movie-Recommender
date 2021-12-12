@@ -1,7 +1,3 @@
-let usernames = {};
-
-// TODO: Read usernames file
-
 function setFormMessage(formElement, type, message) {
     const messageElement = formElement.querySelector(".form__message");
 
@@ -31,19 +27,21 @@ document.addEventListener("DOMContentLoaded", () => {
         e.preventDefault();
         loginForm.classList.add("form--hidden");
         createAccountForm.classList.remove("form--hidden");
-        console.log("B"); 
+        console.log("B");
     });
 
     document.querySelector("#linkLogin").addEventListener("click", e => {
         e.preventDefault();
         loginForm.classList.remove("form--hidden");
         createAccountForm.classList.add("form--hidden");
-        console.log("C"); 
+        console.log("C");
     });
 
     loginForm.addEventListener("submit", e => {
         e.preventDefault();
-        console.log("A"); 
+
+
+        console.log("A");
         const messageElement = loginForm.querySelector(".form__message");
         messageElement.classList.remove("form--hidden");
         // Perform your AJAX/Fetch login
@@ -54,30 +52,41 @@ document.addEventListener("DOMContentLoaded", () => {
         } else {
             setFormMessage(loginForm, "error", "Error: Unknown user \"" + username + "\"");
         }
+
+        postData('http://localhost:8888/login', {
+                username: username
+            })
+            .then(data => {
+                if (data.success) {
+                    setFormMessage(loginForm, "error", "Created User");
+                    setTimeout(() => {
+                        window.location.href = "http://localhost:8888";
+                    }, 1500);
+                } else setFormMessage(loginForm, "error", "Invalid Username");
+            });
     });
+
 
     createAccountForm.addEventListener("submit", e => {
         e.preventDefault();
         let signupUsername = signupUsernameForm.value;
-        usernames[signupUsername] = 1;
-        console.log("Created account: " + signupUsername);
+        if (signupUsername.trim() === "") return setFormMessage(loginForm, "error", "Invalid Username");
 
-        delay(5000).then(() => console.log('ran after 5 seconds passed'));
-
-        loginForm.classList.remove("form--hidden");
-        createAccountForm.classList.add("form--hidden");
-
-        const messageElement = loginForm.querySelector(".form__message");
-        messageElement.classList.remove("form__message--success", "form__message--error");
-        //messageElement.classList.add(`form__message--test`);
-        messageElement.classList.add("form--hidden");
-
-        
+        postData('http://localhost:8888/create-user', {
+                username: signupUsername
+            })
+            .then(data => {
+                if (data.success) {
+                    setFormMessage(loginForm, "error", "Created User");
+                    setTimeout(() => {
+                        window.location.href = "http://localhost:8888";
+                    }, 1500);
+                } else setFormMessage(loginForm, "error", "Invalid Username");
+            });
     });
 
     document.querySelectorAll(".form__input").forEach(inputElement => {
-        inputElement.addEventListener("blur", e => {
-        });
+        inputElement.addEventListener("blur", e => {});
 
         inputElement.addEventListener("input", e => {
             clearInputError(inputElement);
@@ -85,3 +94,21 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
+
+async function postData(url = '', data = {}) {
+    // Default options are marked with *
+    const response = await fetch(url, {
+        method: 'POST', // *GET, POST, PUT, DELETE, etc.
+        mode: 'cors', // no-cors, *cors, same-origin
+        cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+        credentials: 'same-origin', // include, *same-origin, omit
+        headers: {
+            'Content-Type': 'application/json'
+            // 'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        redirect: 'follow', // manual, *follow, error
+        referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+        body: JSON.stringify(data) // body data type must match "Content-Type" header
+    });
+    return response.json(); // parses JSON response into native JavaScript objects
+}

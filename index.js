@@ -31,11 +31,14 @@ app.post("/create-user", async (req, res) => {
         saveData();
         res.cookie('userID', tempUserID);
         res.cookie('userName', req.body.username);
-        res.redirect(`http://localhost:${PORT}/`);
-        res.status(302).end();
+        res.status(200).send({
+            success: true
+        });
     } catch (e) {
         console.log(e);
-        res.status(500).end();
+        res.status(200).send({
+            success: false
+        });
     }
 });
 
@@ -45,10 +48,14 @@ app.post('/login', async (req, res) => {
         if (!availableUsers[req.body.username]) return res.status(403).end();
         res.cookie('userID', availableUsers[req.body.username]);
         res.cookie('userName', req.body.username);
-        res.redirect(`http://localhost:${PORT}/`);
+        res.status(200).send({
+            success: true
+        });
     } catch (e) {
         console.log(e);
-        res.status(500).end();
+        res.status(200).send({
+            success: false
+        });
     }
 })
 
@@ -57,10 +64,14 @@ app.post("/add-rating", async (req, res) => {
     try {
         movieData[req.body.movieID].ratings[req.cookies.userID] = req.body.rating;
         saveData();
-        res.status(200).end();
+        res.status(200).send({
+            success: true
+        });
     } catch (e) {
         console.log(e);
-        res.status(500).end();
+        res.status(200).send({
+            success: false
+        });
     }
 });
 
@@ -69,7 +80,11 @@ app.get("/public/*", async (req, res) => {
 })
 
 app.get("/", async (req, res) => {
-    return res.sendFile(path.join(__dirname, "public/landing-page.html"));
+    if (req.cookies.userID) {
+        let tempHTML = fs.readFileSync(path.join(__dirname, "public/landing-page-logged-in.html")).toString().replace("REPLACE USERNAME", req.cookies.userName);
+        return res.status(200).send(tempHTML);
+    };
+    return res.sendFile(path.join(__dirname, "public/landing-page-logged-out.html"));
 });
 
 app.get("/login", async (req, res) => {
@@ -107,4 +122,3 @@ function saveData() {
 function getRandomID(min = 600, max = 1000) { // Get random ID
     return Math.floor(Math.random() * (max - min + 1) + min);
 };
-
