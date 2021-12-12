@@ -108,10 +108,16 @@ app.get("/movie/*", async (req, res) => {
         if (!tempMovieData) return res.status(404).send("Invalid Movie ID");
         // Do calculations here
 
-        let formattedHTML = fs.readFileSync("./public/movie-page.html").toString();
+        let formattedHTML;
+        if (req.cookies.userID) formattedHTML = fs.readFileSync(path.join(__dirname, "public/movie-page-logged-in.html")).toString().replace("REPLACE USERNAME", req.cookies.userName);
+        else formattedHTML = fs.readFileSync(path.join(__dirname, "public/movie-page-logged-out.html")).toString();
 
-        // Update HTML Here 
+        formattedHTML = formattedHTML.replace("META SCORE HERE", tempMovieData.movieInfo.metaScore);
+        formattedHTML = formattedHTML.replace("IMDB SCORE HERE", tempMovieData.movieInfo.IMDbRating);
+        formattedHTML = formattedHTML.replace("MOVIE TIME HERE", tempMovieData.movieInfo.runTime);
+        formattedHTML = formattedHTML.replace("IMAGE HERE", tempMovieData.movieInfo.image);
         formattedHTML = formattedHTML.replace("MOVIE TITLE HERE", tempMovieData.title);
+
         res.setHeader('content-type', 'text/html; charset=UTF-8');
         res.status(200).send(formattedHTML);
     } catch (e) {

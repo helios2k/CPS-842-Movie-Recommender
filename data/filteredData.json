@@ -6,6 +6,12 @@
       "Adventure",
       "Sci-Fi"
     ],
+    "movieInfo": {
+      "runTime": "2h 5m",
+      "metaScore": "40",
+      "IMDbRating": "5.7",
+      "image": "fantastic four-1500h"
+    },
     "ratings": {
       "18": 3.5,
       "21": 3,
@@ -52,6 +58,12 @@
       "Adventure",
       "Sci-Fi"
     ],
+    "movieInfo": {
+      "runTime": "2h 1m",
+      "metaScore": "76",
+      "IMDbRating": "8.0",
+      "image": "guardians of the galaxy-1500h"
+    },
     "ratings": {
       "15": 1.5,
       "18": 4.5,
@@ -121,6 +133,12 @@
       "Adventure",
       "Sci-Fi"
     ],
+    "movieInfo": {
+      "runTime": "1h 57m",
+      "metaScore": "64",
+      "IMDbRating": "7.3",
+      "image": "ant-man-1500h"
+    },
     "ratings": {
       "18": 4,
       "21": 3.5,
@@ -159,6 +177,12 @@
       "Comedy",
       "Sci-Fi"
     ],
+    "movieInfo": {
+      "runTime": "1h 48m",
+      "metaScore": "65",
+      "IMDbRating": "8.0",
+      "image": "deadpool-1500h"
+    },
     "ratings": {
       "15": 2,
       "18": 3.5,
@@ -223,6 +247,12 @@
       "Adventure",
       "Sci-Fi"
     ],
+    "movieInfo": {
+      "runTime": "2h 29m",
+      "metaScore": "68",
+      "IMDbRating": "8.4",
+      "image": "avengers infinity war - part i-1500h"
+    },
     "ratings": {
       "25": 5,
       "62": 4,
@@ -246,6 +276,12 @@
       "Adventure",
       "Sci-Fi"
     ],
+    "movieInfo": {
+      "runTime": "2h 10m",
+      "metaScore": "74",
+      "IMDbRating": "7.9",
+      "image": "thor ragnarok-1500h"
+    },
     "ratings": {
       "25": 4.5,
       "62": 4,
@@ -276,6 +312,12 @@
       "Adventure",
       "Sci-Fi"
     ],
+    "movieInfo": {
+      "runTime": "2h 16m",
+      "metaScore": "67",
+      "IMDbRating": "7.6",
+      "image": "guardians of the galaxy 2-1500h"
+    },
     "ratings": {
       "18": 4,
       "50": 1,
@@ -313,6 +355,12 @@
       "Sci-Fi",
       "Thriller"
     ],
+    "movieInfo": {
+      "runTime": "2h 27m",
+      "metaScore": "75",
+      "IMDbRating": "7.8",
+      "image": "captain america civil war-1500h"
+    },
     "ratings": {
       "18": 3,
       "49": 4,
@@ -345,6 +393,12 @@
       "Adventure",
       "Sci-Fi"
     ],
+    "movieInfo": {
+      "runTime": "1h 55m",
+      "metaScore": "72",
+      "IMDbRating": "7.5",
+      "image": "doctor strange-1500h"
+    },
     "ratings": {
       "15": 2,
       "21": 4,
@@ -378,6 +432,12 @@
       "Fantasy",
       "Sci-Fi"
     ],
+    "movieInfo": {
+      "runTime": "2h 24m",
+      "metaScore": "52",
+      "IMDbRating": "6.9",
+      "image": "x-men apocalypse-1500h"
+    },
     "ratings": {
       "15": 1,
       "18": 4,
@@ -402,6 +462,12 @@
       "Adventure",
       "Fantasy"
     ],
+    "movieInfo": {
+      "runTime": "2h 13m",
+      "metaScore": "73",
+      "IMDbRating": "7.4",
+      "image": "spiderman homecoming-1500h"
+    },
     "ratings": {
       "18": 3.5,
       "62": 4,
@@ -428,6 +494,12 @@
       "Comedy",
       "Sci-Fi"
     ],
+    "movieInfo": {
+      "runTime": "1h 59m",
+      "metaScore": "66",
+      "IMDbRating": "7.7",
+      "image": "deadpool 2-1500h"
+    },
     "ratings": {
       "25": 5,
       "62": 4,
