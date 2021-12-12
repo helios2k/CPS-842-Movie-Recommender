@@ -66,9 +66,11 @@ app.post('/login', async (req, res) => {
 })
 
 app.post("/add-rating", async (req, res) => {
-    if (!req.cookies.userID || !req.body.movieID) return res.status(403).end();
+    if (!req.cookies.userID || !req.body.movieID) return res.status(200).send({
+        success: false
+    });
     try {
-        movieData[req.body.movieID].ratings[req.cookies.userID] = req.body.rating;
+        movieData[req.body.movieID].ratings[req.cookies.userID] = parseFloat(req.body.rating);
         saveData();
         res.status(200).send({
             success: true
@@ -140,6 +142,13 @@ app.get("/movie/*", async (req, res) => {
 function saveData() {
     fs.writeFileSync('./data/availableUsers.json', JSON.stringify(availableUsers, null, 2));
     fs.writeFileSync('./data/filteredData.json', JSON.stringify(movieData, null, 2));
+    let tempCSVFile = ["userId,movieId,ratings,title"];
+    for (let tempMovieID in movieData) {
+        for (let tempUserID in movieData[tempMovieID].ratings) {
+            tempCSVFile.push(`${tempUserID},${tempMovieID},${movieData[tempMovieID].ratings[tempUserID]},${movieData[tempMovieID].title}`);
+        }
+    }
+    fs.writeFileSync("./data/dataForItemBased.csv", tempCSVFile.join("\n"));
 }
 
 function getRandomID(min = 600, max = 1000) { // Get random ID
