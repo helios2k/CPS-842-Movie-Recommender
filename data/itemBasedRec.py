@@ -21,7 +21,7 @@ def itemBasedRec(user_id, movie_name,):
 
     sim_scores = list(enumerate(cos_sim[movie_id]))
     sim_scores = sorted(sim_scores, key=lambda x: x[1], reverse=True)
-    sim_scores = sim_scores[1:5+1]
+    sim_scores = sim_scores[1:4+1]
     r_ui = average_rating[movie_name]
 
     total_scores = sum([i[1] for i in sim_scores])
@@ -35,8 +35,8 @@ def itemBasedRec(user_id, movie_name,):
     rec_movies = [movie_index[i[0]] for i in sim_scores]
     for i,j in enumerate(rec_movies):
         print(str(j) + ", with similarity score of " + str(round(sim_scores[i][1],5)))
-        
 
+        
 # Example use: To get (5) recommended movies for movie Ant-Man (2015) of userId 15, uncomment the next line
 
 # itemBasedRec(15, "Ant-Man (2015)")
