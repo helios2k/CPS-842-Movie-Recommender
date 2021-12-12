@@ -27,6 +27,19 @@
 
       }
     </style>
+        <script>
+          function deleteCookies() {
+               var allCookies = document.cookie.split(';');
+               
+               // The "expire" attribute of every cookie is 
+               // Set to "Thu, 01 Jan 1970 00:00:00 GMT"
+               for (var i = 0; i < allCookies.length; i++)
+                   document.cookie = allCookies[i] + "=;expires="
+                   + new Date(0).toUTCString();
+                   
+               location.reload();
+           }
+   </script>
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
@@ -63,13 +76,11 @@
                         <a href="http://localhost:8888/">Browse</a>
                       </span>
                     </div>
-                    <a href="http://localhost:8888/login" class="movie-page-login-link">
-                      <div class="login-button-container rootClassName">
-                        <button class="login-button-button button">
-                          <span>Login/Sign Up</span>
-                        </button>
-                      </div>
-                    </a>
+                    <div class="logout-button-container rootClassName">
+                      <button onclick="deleteCookies()" class="logout-button-button button">
+                        <span>Logout</span>
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -131,18 +142,18 @@
                 </button>
               </div>
               <span class="movie-page-login-text18">
-                <h2 style="text-align: right; padding-top: 40px;">Movie - Similarity Score:</h2>
+                <h2 style="text-align: right; padding-top: 40px; color: var(--dl-color-gray-white);">Movie - Similarity Score:</h2>
               </span>
               <div class="movie-page-login-container08">
                 <div class="movie-page-login-movie-rec-4">
                   <ul style="list-style-type:none;">
-                    <li style="text-align: right; padding: 15px 0px;">
+                    <li style="text-align: right; padding: 15px 0px; color: var(--dl-color-gray-white);">
                       <a href="http://localhost:8888/">Movie B - 90%</a>
                     </li>
-                    <li style="text-align: right; padding: 15px 0px;">
+                    <li style="text-align: right; padding: 15px 0px; color: var(--dl-color-gray-white);">
                       <a href="http://localhost:8888/">Movie C - 70%</a>
                     </li>
-                    <li style="text-align: right; padding: 15px 0px;">
+                    <li style="text-align: right; padding: 15px 0px; color: var(--dl-color-gray-white);">
                       <a href="http://localhost:8888/">Movie A - 60%</a>
                     </li>
                   </ul>
