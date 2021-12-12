@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <title>CPS 842 Movie Recommender Frontend</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <meta property="twitter:card" content="summary_large_image" />
+    <style>
+      html {  line-height: 1.15;}body {  margin: 0;}* {  box-sizing: border-box;  border-width: 0;  border-style: solid;}p,li,ul,pre,div,h1,h2,h3,h4,h5,h6 {  margin: 0;  padding: 0;}button,input,optgroup,select,textarea {  font-family: inherit;  font-size: 100%;  line-height: 1.15;  margin: 0;}button,select {  text-transform: none;}button,[type="button"],[type="reset"],[type="submit"] {  -webkit-appearance: button;}button::-moz-focus-inner,[type="button"]::-moz-focus-inner,[type="reset"]::-moz-focus-inner,[type="submit"]::-moz-focus-inner {  border-style: none;  padding: 0;}button:-moz-focus,[type="button"]:-moz-focus,[type="reset"]:-moz-focus,[type="submit"]:-moz-focus {  outline: 1px dotted ButtonText;}a {  color: inherit;  text-decoration: inherit;}input {  padding: 2px 4px;}img {  display: block;}
+    </style>
+    <style>
+      html {
+        font-family: Poppins;
+        font-size: 16px;
+      }
+
+      body {
+        font-weight: 400;
+        font-style:normal;
+        text-decoration: none;
+        text-transform: none;
+        letter-spacing: normal;
+        line-height: 1.55;
+        color: var(--dl-color-gray-black);
+        background-color: var(--dl-color-gray-white);
+
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    />
+    <link rel="stylesheet" href="./public/css/style.css" />
+  </head>
+  <body>
+    <div>
+      <link href="./public/css/about-us.css" rel="stylesheet" />
+      <title>About Us - CPS 842 Movie Recommender Frontend</title>
+      <meta
+        property="og:title"
+        content="About Us - CPS 842 Movie Recommender Frontend"
+      />
+      <div class="about-us-container">
+        <div class="about-us-top-container">
+          <nav class="about-us-navbar">
+            <img
+              alt="image"
+              src="./public/img/movie%20recommender%20logo%20transparent-200h.png"
+              class="about-us-image"
+            />
+            <div class="about-us-right-side">
+              <div class="about-us-links-container">
+                <span class="about-us-text"><span>Browse</span></span>
+                <span class="about-us-text02">Login</span>
+              </div>
+              <a href="http://localhost:8888/login" class="about-us-link">
+                <div class="login-button-container rootClassName3">
+                  <button class="login-button-button button">
+                    <span>Sign Up</span>
+                  </button>
+                </div>
+              </a>
+            </div>
+            <svg viewBox="0 0 1024 1024" class="about-us-burger-menu">
+              <path
+                d="M810.667 725.333h-597.333c-47.061 0-85.333 38.272-85.333 85.333s38.272 85.333 85.333 85.333h597.333c47.061 0 85.333-38.272 85.333-85.333s-38.272-85.333-85.333-85.333z"
+              ></path>
+              <path
+                d="M810.667 426.667h-597.333c-47.061 0-85.333 38.272-85.333 85.333s38.272 85.333 85.333 85.333h597.333c47.061 0 85.333-38.272 85.333-85.333s-38.272-85.333-85.333-85.333z"
+              ></path>
+              <path
+                d="M810.667 128h-597.333c-47.061 0-85.333 38.272-85.333 85.333s38.272 85.333 85.333 85.333h597.333c47.061 0 85.333-38.272 85.333-85.333s-38.272-85.333-85.333-85.333z"
+              ></path>
+            </svg>
+          </nav>
+        </div>
+        <div id="main-section" class="about-us-main">
+          <div class="about-us-container1">
+            <h1 class="about-us-about-us">About Us</h1>
+          </div>
+          <div class="about-us-container2">
+            <span>
+              <span class="about-us-text04"></span>
+              <span class="about-us-text05">Group members:</span>
+              <br />
+              <span></span>
+              <span>&amp;#8203;</span>
+              <br />
+              <span>Arnesh</span>
+              <br />
+              <span>ajaiarath@ryerson.ca</span>
+              <span></span>
+              <br />
+              <span></span>
+              <br />
+              <span>Jason Pham</span>
+              <br />
+              <span>namlong.pham@ryerson.ca</span>
+              <span></span>
+              <br />
+              <span></span>
+              <br />
+              <span>Yiran Zhu</span>
+              <br />
+              <span>ian.zhu@ryerson.ca</span>
+              <br />
+              <span></span>
+              <br />
+              <span></span>
+              <br />
+              <span>Assignment details:</span>
+              <br />
+              <span>
+                Implement a movie recommender system. Set up a web site in which
+                a user can rate a movie he/she has watched. You can import the
+                movie titles and other related information from IMDB. The rating
+                is a number between 0 and 5. After you collect a certain amount
+                of ratings from users, you can run the recommender system, which
+                will then base on the previous ratings given by the user,
+                recommend new movies to the user. You can also import an
+                existing rating dataset (e.g. MovieLens), in this case, a web
+                interface for users to rate a movie is still required. You can
+                implement one of the recommendation algorithms we have learned
+                in class (e.g., content-based, user/item-based collaborative
+                filtering algorithm). You are also welcome to compare your model
+                with other popular recommendation models (e.g., Matrix
+                Factorization, Deep Neural Network). For other models, you can
+                use an existing library. For comparison, you can report the RMSE
+                and precision/recall values of different algorithms when running
+                on a certain dataset.
+              </span>
+              <br />
+              <span></span>
+              <br />
+              <span>
+                Note: You have to implement at least one recommendation
+                algorithm by yourself (without using an existing library). Your
+                program should have a basic user management function, e.g., for
+                a user to register, log in, etc.
+              </span>
+              <span></span>
+            </span>
+          </div>
+        </div>
+        <div class="about-us-footer">
+          <div class="about-us-menu">
+            <div class="about-us-links-container1">
+              <div class="about-us-container3">
+                <a
+                  href="http://localhost:8888/about-us"
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  class="about-us-link1"
+                >
+                  About us
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

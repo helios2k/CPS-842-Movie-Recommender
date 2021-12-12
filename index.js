@@ -76,6 +76,9 @@ app.get("/login", async (req, res) => {
     return res.sendFile(path.join(__dirname, "public/login-page.html"));
 });
 
+app.get("/about-us", async (req, res) => {
+    return res.sendFile(path.join(__dirname, "public/about-us.html"));
+});
 
 app.get("/movie/*", async (req, res) => {
     try {
