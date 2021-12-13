@@ -8,9 +8,11 @@ const compression = require('compression');
 const cookieParser = require('cookie-parser');
 const path = require('path');
 const fs = require('fs');
+const exec = require("child_process").execSync;
 
 var availableUsers = JSON.parse(fs.readFileSync("./data/availableUsers.json")),
-    movieData = JSON.parse(fs.readFileSync('./data/filteredData.json'));
+    movieData = JSON.parse(fs.readFileSync('./data/filteredData.json')),
+    recommendationScores = JSON.parse(fs.readFileSync("./data/recommendations.json"));
 
 
 const app = express();
@@ -117,6 +119,9 @@ app.get("/movie/*", async (req, res) => {
         };
         averageRating = (averageRating / ratingCounter).toFixed(1);
 
+        let movieRecommendations = recommendationScores[tempMovieData.title];
+
+
         // Update HTML
         let formattedHTML;
         if (req.cookies.userID) formattedHTML = fs.readFileSync(path.join(__dirname, "public/movie-page-logged-in.html")).toString().replace("REPLACE USERNAME", req.cookies.userName);
@@ -129,6 +134,21 @@ app.get("/movie/*", async (req, res) => {
         formattedHTML = formattedHTML.replace("IMAGE HERE", tempMovieData.movieInfo.image);
         formattedHTML = formattedHTML.replace("MOVIE TITLE HERE", tempMovieData.title);
 
+        let counter = 1;
+
+        for (let tempMovie in movieRecommendations) {
+            formattedHTML = formattedHTML.replace("Movie TITLE " + counter, tempMovie);
+            formattedHTML = formattedHTML.replace("MOVIE PERCENTAGE " + counter, (movieRecommendations[tempMovie] * 100).toFixed(2));
+            for (let tempMovieID in movieData) {
+                if (movieData[tempMovieID].title === tempMovie) {
+                    formattedHTML = formattedHTML.replace("MOVIE ID " + counter, tempMovieID);
+                    break;
+                };
+            }
+            counter++;
+        };
+
+
         res.setHeader('content-type', 'text/html; charset=UTF-8');
         res.status(200).send(formattedHTML);
     } catch (e) {
@@ -139,7 +159,7 @@ app.get("/movie/*", async (req, res) => {
     }
 });
 
-function saveData() {
+async function saveData() {
     fs.writeFileSync('./data/availableUsers.json', JSON.stringify(availableUsers, null, 2));
     fs.writeFileSync('./data/filteredData.json', JSON.stringify(movieData, null, 2));
     let tempCSVFile = ["userId,movieId,ratings,title"];
@@ -149,7 +169,13 @@ function saveData() {
         }
     }
     fs.writeFileSync("./data/dataForItemBased.csv", tempCSVFile.join("\n"));
-}
+
+    // Here call recommendation calculations
+    const pythonProcess = await exec('python', [path.join(__dirname, "./data/itemBasedRec.py")]);
+
+    recommendationScores = JSON.parse(fs.readFileSync('./data/recommendations.json'));
+
+};
 
 function getRandomID(min = 600, max = 1000) { // Get random ID
     return Math.floor(Math.random() * (max - min + 1) + min);
