@@ -8,7 +8,7 @@ const compression = require('compression');
 const cookieParser = require('cookie-parser');
 const path = require('path');
 const fs = require('fs');
-const exec = require("child_process").execSync;
+const spawn = require("child_process").spawn;
 
 var availableUsers = JSON.parse(fs.readFileSync("./data/availableUsers.json")),
     movieData = JSON.parse(fs.readFileSync('./data/filteredData.json')),
@@ -30,7 +30,7 @@ app.post("/create-user", async (req, res) => {
     try {
         let tempUserID = getRandomID();
         availableUsers[tempUserID] = req.body.username;
-        saveData();
+        saveData(tempUserID);
         res.cookie('userID', tempUserID);
         res.cookie('userName', req.body.username);
         res.status(200).send({
@@ -73,7 +73,7 @@ app.post("/add-rating", async (req, res) => {
     });
     try {
         movieData[req.body.movieID].ratings[req.cookies.userID] = parseFloat(req.body.rating);
-        saveData();
+        saveData(req.cookies.userID);
         res.status(200).send({
             success: true
         });
@@ -159,7 +159,7 @@ app.get("/movie/*", async (req, res) => {
     }
 });
 
-async function saveData() {
+async function saveData(userID) {
     fs.writeFileSync('./data/availableUsers.json', JSON.stringify(availableUsers, null, 2));
     fs.writeFileSync('./data/filteredData.json', JSON.stringify(movieData, null, 2));
     let tempCSVFile = ["userId,movieId,ratings,title"];
@@ -171,10 +171,11 @@ async function saveData() {
     fs.writeFileSync("./data/dataForItemBased.csv", tempCSVFile.join("\n"));
 
     // Here call recommendation calculations
-    const pythonProcess = await exec('python', [path.join(__dirname, "./data/itemBasedRec.py")]);
+    const pythonProcess = spawn('python', ["./itemBasedRec.py", userID]);
 
-    recommendationScores = JSON.parse(fs.readFileSync('./data/recommendations.json'));
-
+    pythonProcess.on('close', () => {
+        recommendationScores = JSON.parse(fs.readFileSync('./data/recommendations.json'));
+    })
 };
 
 function getRandomID(min = 600, max = 1000) { // Get random ID

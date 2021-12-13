@@ -5,6 +5,7 @@ import csv
 import numpy as np
 import json
 import os
+import sys
 
 def jsontocsv():
     aDict = {
@@ -13,7 +14,7 @@ def jsontocsv():
         "ratings": [],
         "title": []
     }
-    with open("filteredData.json",'r') as f:
+    with open("./data/filteredData.json",'r') as f:
         data = json.load(f)
         for movieId in data.keys():
             title = data[movieId]["title"]
@@ -23,14 +24,14 @@ def jsontocsv():
                 aDict["ratings"].append(rating)
                 aDict["title"].append(title)
     df = pd.DataFrame(aDict)
-    df.to_csv("dataForItemBased.csv",index=False)
+    df.to_csv("./data/dataForItemBased.csv",index=False)
 
 def userItemMatrix():
-    data = pd.read_csv("dataForItemBased.csv")
+    data = pd.read_csv("./data/dataForItemBased.csv")
     user_item_matrix = data.pivot(index="userId",columns="title",values="ratings").fillna(0)
     user_item_matrix.to_csv("userItemMatrix.csv",index=True)
 
-data = pd.read_csv("dataForItemBased.csv")
+data = pd.read_csv("./data/dataForItemBased.csv")
 ui_matrix = data.pivot(index="userId",columns="title",values="ratings").fillna(0)
 movie_title = ui_matrix.columns
 movie_index = pd.Series(movie_title, index=(range(len(movie_title))))
@@ -44,7 +45,7 @@ for title in movie_title:
     jsonObj[title] = {}
 
 def itemBasedRec(user_id, movie_name):
-    with open("recommendation.json",'r') as f:
+    with open("./data/recommendations.json",'r') as f:
         jsonObj = json.load(f)
     movie_id = movie_indices[movie_name]
     ui_matrix_ = ui_matrix.dropna()
@@ -67,21 +68,21 @@ def itemBasedRec(user_id, movie_name):
     #     print(str(j) + " "+ str(round(sim_scores[i][1],5)))
     for i,j in enumerate(rec_movies):
         jsonObj[movie_name][j] = round(sim_scores[i][1],5)
-    with open("recommendation.json",'w') as f:
+    with open("./data/recommendations.json",'w') as f:
         json.dump(jsonObj,f)
 
 
 jsontocsv()
 userItemMatrix()
-itemBasedRec(15, "Guardians of the Galaxy (2014)")
-itemBasedRec(15, "Fantastic Four (2005)")
-itemBasedRec(15, "Ant-Man (2015)")
-itemBasedRec(15, "Deadpool (2016)")
-itemBasedRec(15, "Avengers: Infinity War - Part I (2018)")
-itemBasedRec(15, "Thor: Ragnarok (2017)")
-itemBasedRec(15, "Guardians of the Galaxy 2 (2017)")
-itemBasedRec(15, "Captain America: Civil War (2016)")
-itemBasedRec(15, "Doctor Strange (2016)")
-itemBasedRec(15, "X-Men: Apocalypse (2016)")
-itemBasedRec(15, "Spider-Man: Homecoming (2017)")
-itemBasedRec(15, "Deadpool 2 (2018)")
+itemBasedRec(int(sys.argv[1]), "Guardians of the Galaxy (2014)")
+itemBasedRec(int(sys.argv[1]), "Fantastic Four (2005)")
+itemBasedRec(int(sys.argv[1]), "Ant-Man (2015)")
+itemBasedRec(int(sys.argv[1]), "Deadpool (2016)")
+itemBasedRec(int(sys.argv[1]), "Avengers: Infinity War - Part I (2018)")
+itemBasedRec(int(sys.argv[1]), "Thor: Ragnarok (2017)")
+itemBasedRec(int(sys.argv[1]), "Guardians of the Galaxy 2 (2017)")
+itemBasedRec(int(sys.argv[1]), "Captain America: Civil War (2016)")
+itemBasedRec(int(sys.argv[1]), "Doctor Strange (2016)")
+itemBasedRec(int(sys.argv[1]), "X-Men: Apocalypse (2016)")
+itemBasedRec(int(sys.argv[1]), "Spider-Man: Homecoming (2017)")
+itemBasedRec(int(sys.argv[1]), "Deadpool 2 (2018)")
