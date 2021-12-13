@@ -4,6 +4,7 @@ import pandas as pd
 import csv
 import numpy as np
 import json
+import os
 
 def jsontocsv():
     aDict = {
@@ -39,9 +40,12 @@ sum_ratings = ui_matrix.sum(axis=0)
 num_ratings = ui_matrix[ui_matrix>0].count()
 average_rating = sum_ratings/num_ratings
 jsonObj = {}
-# print(jsonObj)
+for title in movie_title:
+    jsonObj[title] = {}
 
 def itemBasedRec(user_id, movie_name):
+    with open("recommendation.json",'r') as f:
+        jsonObj = json.load(f)
     movie_id = movie_indices[movie_name]
     ui_matrix_ = ui_matrix.dropna()
     cos_sim = cosine_similarity(ui_matrix_.T,ui_matrix_.T)
@@ -59,32 +63,25 @@ def itemBasedRec(user_id, movie_name):
 
     # print("Predicted score of user " +str(user_id) + " for " + str(movie_name) + ": " + str(r_ui))
     rec_movies = [movie_index[i[0]] for i in sim_scores]
-    for title in movie_title:
-        jsonObj[title] = {}
-    # print(jsonObj)
-    with open("recommendations.json",'a+') as file:
-        jsonfile = json.load(file)
-        # print(jsonfile)
-        for mv in jsonfile.keys():
-            if mv == movie_name:
-                for i,j in enumerate(rec_movies):
-                    jsonfile[mv][j] = round(sim_scores[i][1],5)
-        json.dump(jsonfile,file)
-    # for mv in jsonObj:
-    #     if mv == movie_name:
-    #         for i,j in enumerate(rec_movies):
-    #             jsonObj[mv][j] = round(sim_scores[i][1],5)
-    # with open('recommendations.json','w') as outfile:
-    #     json.dump(jsonObj,outfile)
-    #     asd
+    # for i,j in enumerate(rec_movies):
+    #     print(str(j) + " "+ str(round(sim_scores[i][1],5)))
+    for i,j in enumerate(rec_movies):
+        jsonObj[movie_name][j] = round(sim_scores[i][1],5)
+    with open("recommendation.json",'w') as f:
+        json.dump(jsonObj,f)
 
 
-# Example use: To get (4) recommended movies for movie Ant-Man (2015) of userId 15, uncomment the next line
-
-# itemBasedRec(15, "Ant-Man (2015)")
-
-
-
-# jsontocsv()
-# userItemMatrix()
+jsontocsv()
+userItemMatrix()
+itemBasedRec(15, "Guardians of the Galaxy (2014)")
+itemBasedRec(15, "Fantastic Four (2005)")
 itemBasedRec(15, "Ant-Man (2015)")
+itemBasedRec(15, "Deadpool (2016)")
+itemBasedRec(15, "Avengers: Infinity War - Part I (2018)")
+itemBasedRec(15, "Thor: Ragnarok (2017)")
+itemBasedRec(15, "Guardians of the Galaxy 2 (2017)")
+itemBasedRec(15, "Captain America: Civil War (2016)")
+itemBasedRec(15, "Doctor Strange (2016)")
+itemBasedRec(15, "X-Men: Apocalypse (2016)")
+itemBasedRec(15, "Spider-Man: Homecoming (2017)")
+itemBasedRec(15, "Deadpool 2 (2018)")
