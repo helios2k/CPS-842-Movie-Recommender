@@ -1,8 +1,8 @@
 # Movie Recommendation System
-
+![Demo image](public/img/demo2.jpg)
 ## Introduction 
 
-MR is a movie recommendation system web application where users can create accounts, rate movies they watched and get recommendations based on the movies they liked or based on users who are similar to their tastes. When selecting a movie from the list, users are able to see its details like average ratings, Metascore and IMDb ratings, and movies recommended.
+MR is a movie recommendation system web application where users can create accounts, rate movies they watched and get recommendations based on the movies they liked or based on users who are similar to their tastes. When selecting a movie from the list, users are able to see its initial details like average ratings, Metascore, IMDb ratings, and similar movies recommended based on users ratings from dataset. Upon submitting a new rating, the similar score will change accordingly.
 
 ## Description
 
@@ -27,7 +27,12 @@ MR is a movie recommendation system web application where users can create accou
 ```
 pip install -r requirements.txt
 ```
-- Node:
+- Node packages:
+
+```
+npm install
+```
+Alternatively:
 ```
 npm install express
 npm install cookie-parser
@@ -37,3 +42,4 @@ npm install compression
 ```
 node index.js
 ```
+4. Access the app via localhost: http://127.0.0.1:8888/
